@@ -41,7 +41,7 @@ disabled = false
 show_always = true
 
 [directory]
-truncation_length = 50
+truncation_length = 1
 truncation_symbol = "…/"
 
 [git_branch]
