@@ -47,6 +47,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
+Plugin 'rainglow/vim'
 
 " -------- Other plugins
 Plugin 'elzr/vim-json'              " show the quotes in json files
@@ -93,17 +94,18 @@ let g:nord_underline=1
 let g:nord_termtrans=1
 
 " ----------- Gruvbox ------------
-colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark="soft"
+"set background=light
+let g:gruvbox_contrast_light="hard"
 let g:gruvbox_bold=0
-let g:gruvbox_italic=1
+let g:gruvbox_italic=0
 let g:gruvbox_transparent_bg=1
-"let g:gruvbox_termcolors=16
+let g:gruvbox_termcolors=16
+colorscheme gruvbox
 
-" ----------- Base16 ------------
-"colorscheme base16-railscasts
-"let base16colorspace=256
+" ----------- Rainglow ------------
+"colorscheme piggy
 " ---------- General Settings ----------
 set backspace=indent,eol,start
 
@@ -159,12 +161,15 @@ if has('folding')
     set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
   endif
   set foldmethod=indent               " not as cool as syntax, but faster
-  set foldlevelstart=1000               " start unfolded
+  set foldlevelstart=1               " start unfolded
   set foldtext=NeatFoldText()
 endif
 
 " Do not fold the code by default
 "set foldlevel=10000
+
+" ---------- Airline Theme ----------
+let g:airline_theme='gruvbox'
 
 " ---------- NerdTree Project Browser ----------
 "nnoremap <C-n> :NERDTreeToggle<CR>
@@ -182,7 +187,6 @@ let g:indentLine_conceallevel=1
 let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_char_list=['ⵗ']
-let g:vim_json_syntax_conceal = 0
 
 
 " --------- JavaScript syntax
@@ -229,6 +233,7 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+
 " ---------- YCM Auto Complete ----------
 nnoremap <F12> :YcmCompleter GoTo<CR>
 
