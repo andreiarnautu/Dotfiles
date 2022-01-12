@@ -7,8 +7,8 @@
 #[└─>](bold red) """
 
 format = """
-(bold red)$directory$git_branch$git_status$cmd_duration$battery $character
-$username[-->](bold green) """
+$directory$git_branch$git_status$cmd_duration$battery $character
+$username[--->](bold fg:4) """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -25,23 +25,25 @@ full_symbol = "🔋"
 charging_symbol = "⚡️"
 discharging_symbol = "💀"
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 30%
+# "bold red" style when capacity is between 0% and 40%
+[[battery.display]]
 threshold = 40
 style = "bold red"
 
+# "bold green" style when capacity is between 41% and 100%
 [[battery.display]]
 threshold = 100
-style = "bold green"
+style = "bold fg:4"
 
 # ~/.config/starship.toml
 
 [cmd_duration]
 min_time = 50
-format = "took [$duration](bold yellow) "
+format = "took [$duration](bold fg:6) "
 show_milliseconds = true
 
 [username]
-format = "[$user](bold fg:1) "
+format = "[$user](bold fg:5) "
 disabled = false
 show_always = true
 
