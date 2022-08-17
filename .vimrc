@@ -8,14 +8,14 @@ filetype indent plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 if has("termguicolors")     " set true colors
-    let t_8f="\[[38;2;%lu;%lu;%lum"
-    let t_8b="\[[48;2;%lu;%lu;%lum"
-    set termguicolors
+    "let t_8f="\[[38;2;%lu;%lu;%lum"
+    "let t_8b="\[[48;2;%lu;%lu;%lum"
+    "set termguicolors
 endif
 
 highlight Normal ctermbg=None
-set listchars=eol:¬
-set list
+"set listchars=eol:¬
+"set list
 
 " -------------------------------- Plugins -----------------------------------
 " set the runtime path to include Vundle and initialize
@@ -52,13 +52,17 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'dracula/vim'
-Plugin 'AlessandroYorba/Alduin'
+Plugin 'agreco/vim-citylights'
+Plugin 'dylanaraps/wal.vim'
 
 " -------- Other plugins
 Plugin 'elzr/vim-json'              " show the quotes in json files
 Plugin 'Yggdroot/indentLine'        " indentation guide
 Plugin 'ryanoasis/vim-devicons'       " adds icons in NerdTree
 Plugin 'dag/vim2hs'
+Plugin 'github/copilot.vim'
+"Plugin 'tomlion/vim-solidity'           " solidity
+Plugin 'thesis/vim-solidity'
 "Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()            " required
@@ -93,19 +97,23 @@ let g:gruvbox_contrast_dark="soft"
 set background=light
 let g:gruvbox_contrast_light="soft"
 let g:gruvbox_bold=0
-let g:gruvbox_italic=0
+let g:gruvbox_italic=1
 let g:gruvbox_transparent_bg=1
 let g:gruvbox_termcolors=16
 "colorscheme gruvbox
 
 " ----------- Dracula ------------
-"colorscheme dracula
-"let g:dracula_colorterm = 0
-colorscheme dracula_pro_buffy
+"colorscheme dracula_pro
+"colorscheme noelle
+"colorscheme pywal
+colorscheme wal
 
-" ----------- Alduin ------------
+" ----------- City lights -------
+"colorscheme citylights
+"set termguicolors
+" ----------- Base16 ------------
 
-"colorscheme alduin
+"colorscheme base16-grayscale-dark
 
 " ---------- General Settings ----------
 set backspace=indent,eol,start
@@ -124,7 +132,7 @@ set showmatch
 set hlsearch
 
 " Highlight the current cursor line
-set cursorline
+"set cursorline
 
 " Highlight the 80 columns margin.
 "set colorcolumn=80
@@ -169,7 +177,8 @@ endif
 "set foldlevel=1
 
 " ---------- Airline Theme ----------
-let g:airline_theme='dracula'
+"let g:airline_theme='nord'
+let g:airline_theme='wal'
 " Enable wordcount
 let g:airline#extensions#wordcount#enabled = 1
 " Add notes to filetypes
@@ -186,13 +195,13 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 filetype indent plugin on
 syntax on
 
-"let g:indentLine_enabled = 1
-let g:indentLine_conceallevel=1
-let g:indentLine_leadingSpaceEnabled=1
-let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_enabled = 1
+"let g:indentLine_conceallevel=1
+"let g:indentLine_leadingSpaceEnabled=1
+"let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_char_list=['ⵗ']
-
-
+"let g:indentLine_color_term = 0
+let g:indentLine_defaultGroup = 'Statement'
 " --------- JavaScript syntax
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
@@ -289,7 +298,7 @@ let g:ycm_filetype_whitelist = {
 \ }
 
 " ---------- Neovide ----------
-let g:neovide_transparency=0
+let g:neovide_transparency=1
 
 let g:python_highlight_all = 1
 
